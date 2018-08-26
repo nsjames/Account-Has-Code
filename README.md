@@ -8,7 +8,7 @@ their account they will be removed from the oracle.
 
 The mainnet account for this contract is
 
-##`codeaccounts`
+## `codeaccounts`
 
 You can query it within your contracts by calling the table and checking for the existence of an account.
 If the singleton table comes back with no rows then the account does not exist.
