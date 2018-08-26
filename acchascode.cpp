@@ -38,14 +38,20 @@ public:
     }
 
     // @abi action
-    void add(account_name account, account_name trustee){
+    void add(account_name account, account_name trustee, uint8_t remove){
         require_auth(trustee);
+        eosio_assert(remove == 0 || remove == 1, "remove must be either a 1 or a 0")
 
         Trustees trustees(_self, _self);
         eosio_assert(trustees.find(trustee) != trustees.end(), "Trustee is not a trusted oracle seeder");
 
-        if(Accounts(_self, account).exists()) Accounts(_self, account).remove();
-        else Accounts(_self, account).set(boolwrap{1}, _self);
+        if(remove == 0){
+            if(!Accounts(_self, account).exists())
+                Accounts(_self, account).set(boolwrap{1}, _self);
+        } else if (remove == 1) {
+            if(Accounts(_self, account).exists())
+                Accounts(_self, account).remove();
+        }
     }
 
 };
