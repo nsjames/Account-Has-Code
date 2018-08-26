@@ -39,8 +39,9 @@ public:
 
     // @abi action
     void add(account_name account, account_name trustee, uint8_t remove){
+        eosio_assert(is_account(account), "account does not exist");
         require_auth(trustee);
-        eosio_assert(remove == 0 || remove == 1, "remove must be either a 1 or a 0")
+        eosio_assert(remove == 0 || remove == 1, "remove must be either a 1 or a 0");
 
         Trustees trustees(_self, _self);
         eosio_assert(trustees.find(trustee) != trustees.end(), "Trustee is not a trusted oracle seeder");
