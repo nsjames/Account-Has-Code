@@ -13,5 +13,5 @@ The mainnet account for this contract is
 You can query it within your contracts by calling the table and checking for the existence of an account.
 If the singleton table comes back with no rows then the account does not exist.
 
-Check out the `testcontract` for an example of how to use this from within your contracts.
+Check out the [`testcontract` for an example](https://github.com/nsjames/Account-Has-Code/blob/master/testcontract/testcontract.cpp) of how to use this from within your contracts.
 
