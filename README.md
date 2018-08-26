@@ -7,6 +7,7 @@ their account they will be removed from the oracle.
 ## Checking for accounts on the mainnet
 
 The mainnet account for this contract is
+
 ##`codeaccounts`
 
 You can query it within your contracts by calling the table and checking for the existence of an account.
